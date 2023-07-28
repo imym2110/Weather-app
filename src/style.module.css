@@ -68,3 +68,11 @@ body {
   /* width: 334px; */
   /* justify-content: flex-start; */
 }
+
+/* Media query using the 'max-width' condition */
+@media (max-width: 979px) {
+  .para {
+    margin-top: 3px;
+    font-size: 30px;
+  }
+}
