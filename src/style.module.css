@@ -1,0 +1,70 @@
+body {
+  background-image: url("./assets/images/jeremy-bishop-LnMcM8IC40Y-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 290px;
+  margin: 80px auto;
+}
+.city {
+  appearance: none;
+  border: none;
+  outline: none;
+  border-bottom: 0.2em solid rgb(46 71 185);
+  background-color: rgb(46 71 185 / 11%);
+  border-radius: 10px;
+  padding: 0.4em;
+  font-weight: 500;
+}
+.button {
+  width: 180px;
+  margin: 25px auto 0px auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: rgb(46 71 185 / 47%);
+  box-shadow: -1px 1px 2px 0px #ccc;
+  border: 1px solid rgb(46 71 185 / 47%);
+  font-weight: 500;
+  transition: all 0.2s linear 0.1s;
+}
+.button:hover {
+  background-color: #3049ba;
+  color: white;
+  border: 1px solid black;
+  transform: rotate(-4deg);
+}
+.weather_container {
+  display: flex;
+  margin: 50px auto 10px auto;
+  justify-content: center;
+}
+.para {
+  font-weight: 600;
+  margin-right: 15px;
+}
+.desc {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.feel {
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+.humidity {
+  font-weight: 600;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  /* width: 334px; */
+  /* justify-content: flex-start; */
+}
