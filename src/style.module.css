@@ -1,16 +1,19 @@
-body {
-  background-image: url("./assets/images/jeremy-bishop-LnMcM8IC40Y-unsplash.jpg");
+.body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 85vh;
+  height: 100vh;
+}
+.toggle {
+  margin: 15px auto 0px 10px;
 }
 .form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 290px;
-  margin: 80px auto;
+  padding-top: 70px;
+  margin: 0px auto 40px auto;
 }
 .city {
   appearance: none;
@@ -19,9 +22,20 @@ body {
   border-bottom: 0.2em solid rgb(46 71 185);
   background-color: rgb(46 71 185 / 11%);
   border-radius: 10px;
-  padding: 0.4em;
+  padding: 0.3em;
   font-weight: 500;
 }
+.cityDark {
+  appearance: none;
+  border: none;
+  outline: none;
+  border-bottom: 0.2em solid rgb(46 71 185);
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.3em;
+  font-weight: 500;
+}
+
 .button {
   width: 180px;
   margin: 25px auto 0px auto;
@@ -38,15 +52,20 @@ body {
   background-color: #3049ba;
   color: white;
   border: 1px solid black;
-  transform: rotate(-4deg);
+  transform: rotate(-2deg);
 }
 .weather_container {
   display: flex;
-  margin: 50px auto 10px auto;
+  margin: 0px auto 10px auto;
   justify-content: center;
 }
 .para {
   font-weight: 600;
+  margin-right: 15px;
+}
+.paraDark {
+  font-weight: 600;
+  color: white;
   margin-right: 15px;
 }
 .desc {
@@ -55,7 +74,20 @@ body {
   justify-content: center;
   margin-bottom: 10px;
 }
+.descDark {
+  color: white;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 .feel {
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+.feelDark {
+  color: white;
   font-weight: 600;
   display: flex;
   justify-content: center;
@@ -68,7 +100,55 @@ body {
   /* width: 334px; */
   /* justify-content: flex-start; */
 }
-
+.humidityDark {
+  color: white;
+  font-weight: 600;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  /* width: 334px; */
+  /* justify-content: flex-start; */
+}
+.windSpeed {
+  font-weight: 600;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.windSpeedDark {
+  color: white;
+  font-weight: 600;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.timing {
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  gap: 30px;
+}
+.timingDark {
+  color: white;
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  gap: 30px;
+}
+.sunrise {
+  display: flex;
+  flex-direction: column;
+}
+.sunriseIcon {
+  margin: auto;
+}
+.sunset {
+  display: flex;
+  flex-direction: column;
+}
+.sunsetIcon {
+  margin: auto;
+}
 /* Media query using the 'max-width' condition */
 @media (max-width: 979px) {
   .para {

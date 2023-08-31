@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, API_KEY_PARAM } from "./config";
+import { BASE_URL, API_KEY_PARAM, GEO_URL } from "./config";
 
 export class WeatherApi {
   static async fetchCity(city) {
