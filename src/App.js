@@ -5,8 +5,15 @@ import { WeatherApi } from "./weather-api";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import styled from "@emotion/styled";
-import { Switch } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Switch,
+} from "@mui/material";
 import DarkModeToggle from "react-dark-mode-toggle";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 function App() {
   const Dayurl = require("./assets/images/jeremy-bishop-LnMcM8IC40Y-unsplash.jpg");
@@ -21,7 +28,7 @@ function App() {
   const [windSpeed, setWindSpeed] = useState("");
   const [timing, setTiming] = useState({});
   const [isDarkMode, setIsDarkMode] = useState(() => false);
-  const [suggestions, setSuggestions] = useState([]);
+  const [favoriteCity, setFavoriteCity] = useState([]);
 
   const ampm = (timestamp) => {
     const dat = new Date(timestamp * 1000).toLocaleDateString();
@@ -79,15 +86,64 @@ function App() {
             setCity(e.target.value);
           }}
         />
-        <button type="submit" className={s.button}>
-          Check Weather
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+          <button type="submit" className={s.button}>
+            Check Weather
+          </button>
+
+          <button
+            className={s.badgeButton}
+            onClick={() => {
+              if (!favoriteCity.includes(city)) {
+                setFavoriteCity((item) => [...item, city]);
+              }
+            }}
+          >
+            <FavoriteBorderIcon
+              style={{ paddingBottom: "1px", paddingRight: "3px" }}
+            />
+            Favourite
+          </button>
+        </div>
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small" variant="filled">
+          <InputLabel id="demo-select-small-label">Favourite city</InputLabel>
+          <Select
+            labelId="demo-select-small-label"
+            id="demo-select-small"
+            label="Favorite city"
+            onChange={async (e) => {
+              e.preventDefault();
+              if (city) {
+                let res = await WeatherApi.fetchCity(e.target.value);
+                console.log("hi", res);
+                if (res?.status == 200) {
+                  setTemp(Math.round(res.data.main.temp));
+                  setLogo(res.data.weather[0].icon);
+                  setLocation(res.data.name);
+                  setHumid(res.data.main.humidity);
+                  setFeel(Math.round(res.data.main.feels_like));
+                  setDesc(res.data.weather[0].description);
+                  setWindSpeed(res.data.wind.speed);
+                  setTiming({
+                    sunrise: res.data.sys.sunrise,
+                    sunset: res.data.sys.sunset,
+                  });
+                }
+              }
+            }}
+          >
+            {favoriteCity.map((item) => (
+              <MenuItem value={item}>{item}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        {/* {console.log("--->", favoriteCity)} */}
       </form>
 
       {temp && (
         <div className={s.weather_container}>
           <h2 className={!isDarkMode ? `${s.para}` : `${s.paraDark}`}>
-            {temp}°C in {location}
+            {temp}°C/{Math.ceil(temp * 1.8 + 32)}°F in {location}
           </h2>
           {logo && (
             <img
